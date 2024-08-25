@@ -1,5 +1,7 @@
 import { ApiHeaders } from "./api-utils";
-const MSG_ERROR_NO_ID = "Score ID is required";
+const MSG_ERROR_NO_CATEGORY = "Category ID is required";
+const MSG_ERROR_NO_USER = "User ID is required";
+const MSG_ERROR_NO_RANKING_ITEM = "Ranking Item ID is required";
 const MSG_ERROR_NO_NAME = "Category Name is required";
 
 export const ScoreApi = {
@@ -19,10 +21,16 @@ export const ScoreApi = {
   },
 
   async putScores(
-    categoryId: number,
-    scores: IScore[]
+    scores: IScore[],
+    categoryId: number
   ): Promise<IScore[] | null> {
-    // Add in validation
+    if (!categoryId) {
+      console.error(MSG_ERROR_NO_CATEGORY);
+      return null;
+    }
+    if (!validateScores(scores)) {
+      return null;
+    }
     const url: string = `http://localhost:8080/api/v1/score/category/${categoryId}`;
     const response: IScore[] = await fetch(url, {
       method: "PUT",
@@ -35,8 +43,33 @@ export const ScoreApi = {
   },
 };
 
+const validateScores = (scores: IScore[]): boolean => {
+  scores.some((score: IScore) => {
+    if (!validateScore(score)) {
+      console.log("failed");
+      return false;
+    }
+  });
+  return true;
+};
+const validateScore = (score: IScore): boolean => {
+  if (!score.scoreValue) {
+    console.error(MSG_ERROR_NO_NAME);
+    return false;
+  }
+  if (!score.rankingItemId) {
+    console.error(MSG_ERROR_NO_RANKING_ITEM);
+    return false;
+  }
+  if (!score.userAccountId) {
+    console.error(MSG_ERROR_NO_USER);
+    return false;
+  }
+  return true;
+};
+
 export interface IScore {
-  categoryId: number;
+  categoryId?: number;
   rankingItemId: number;
   scoreValue: number;
   userAccountId: number;
