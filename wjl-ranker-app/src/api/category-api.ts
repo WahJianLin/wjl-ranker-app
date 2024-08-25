@@ -2,7 +2,7 @@ import { ApiHeaders } from "./api-utils";
 const MSG_ERROR_NO_ID = "Category ID is required";
 const MSG_ERROR_NO_NAME = "Category Name is required";
 
-export const CategeoryAPI = {
+export const CategeoryApi = {
   async getAllCategories(): Promise<ICategory[]> {
     const url: string = `http://localhost:8080/api/v1/category`;
     const response: ICategory[] = await fetch(url, { method: "GET" })
