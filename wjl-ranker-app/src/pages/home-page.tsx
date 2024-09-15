@@ -4,6 +4,4 @@ function HomePage() {
   return <HomeHero />;
 }
 
-interface Props {}
-
 export default HomePage;

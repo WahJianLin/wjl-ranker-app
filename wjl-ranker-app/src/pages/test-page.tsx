@@ -1,14 +1,9 @@
-import React from "react"
-
-function TestPage(props: Props) {
+function TestPage() {
   return (
     <div>
       <div>test page</div>
     </div>
-  )
-};
-
-interface Props {
+  );
 }
 
 export default TestPage;
