@@ -1,6 +1,5 @@
 function test() {
-
-  return <h1 className="text-4xl">Test</h1>;
+  return <h1>Test</h1>;
 }
 
 export default test;
