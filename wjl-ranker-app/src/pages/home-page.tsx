@@ -1,14 +1,9 @@
-import React from "react"
+import HomeHero from "../components/home-screen/home-hero";
 
-function HomePage(props: Props) {
-  return (
-    <div>
-      <div>home page</div>
-    </div>
-  )
-};
-
-interface Props {
+function HomePage() {
+  return <HomeHero />;
 }
+
+interface Props {}
 
 export default HomePage;

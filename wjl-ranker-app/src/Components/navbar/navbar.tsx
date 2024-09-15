@@ -1,16 +1,22 @@
-import NavbarLink from "./navbar-link";
 import {
+  NAVBAR_LINKS,
   NAVBAR_LINKS_IN_USE,
   NAVBAR_LINKS_TEXT,
+  WJL_RANKER_TEXT,
 } from "../../supplimentary/constants";
+import { NavLink } from "react-router-dom";
 
-function Navbar(props: Props) {
+function Navbar() {
   const links = (): JSX.Element[] => {
     return NAVBAR_LINKS_IN_USE.map((link: string) => {
-      return <NavbarLink linkTo={link} linkText={NAVBAR_LINKS_TEXT[link]} />;
+      return (
+        <li>
+          <NavLink to={`/${link}`}>{NAVBAR_LINKS_TEXT[link]}</NavLink>
+        </li>
+      );
     });
   };
-
+  // DaisyUI navbar
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -38,7 +44,9 @@ function Navbar(props: Props) {
               </svg>
             </label>
           </div>
-          <div className="mx-2 flex-1 px-2">Navbar Title</div>
+          <div className="mx-2 px-2">
+            <NavLink to={`/${NAVBAR_LINKS.HOME}`}>{WJL_RANKER_TEXT}</NavLink>
+          </div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
               {/* Navbar menu content here */}
@@ -46,8 +54,6 @@ function Navbar(props: Props) {
             </ul>
           </div>
         </div>
-        {/* Page content here */}
-        Content
       </div>
       <div className="drawer-side">
         <label
@@ -63,7 +69,5 @@ function Navbar(props: Props) {
     </div>
   );
 }
-
-interface Props {}
 
 export default Navbar;
