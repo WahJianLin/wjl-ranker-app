@@ -1,17 +1,26 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import HomePage from "./pages/home-page";
-import TestPage from "./pages/test-page";
-import Navbar from "./components/navbar/navbar";
+import CategoryPage from "./pages/category-page";
+import RootLayout from "./layout/root-layout";
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/category" element={<CategoryPage />} />
+      </Route>
+    )
+  );
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/test" element={<TestPage />} />
-      </Routes>
+      <RouterProvider router={router}/>
     </>
   );
 }

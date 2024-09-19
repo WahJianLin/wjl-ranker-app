@@ -10,7 +10,7 @@ function Navbar() {
   const links = (): JSX.Element[] => {
     return NAVBAR_LINKS_IN_USE.map((link: string) => {
       return (
-        <li>
+        <li key={link}>
           <NavLink to={`/${link}`}>{NAVBAR_LINKS_TEXT[link]}</NavLink>
         </li>
       );
