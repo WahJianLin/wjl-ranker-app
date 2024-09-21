@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CategeoryApi, ICategory } from "../api/category-api";
 import { NavLink } from "react-router-dom";
+import { NAVBAR_LINKS } from "../supplimentary/constants";
 
 function CategorySelectorPage() {
   const [state, setState] = useState<ICategorySelectorPageState>({
@@ -15,11 +16,12 @@ function CategorySelectorPage() {
     fetchAllCategories();
   }, []);
   const categoryButtons = (): JSX.Element[] => {
-    // use constants later
     return state.categoryList.map((category: ICategory) => {
       return (
         <div key={category.id} className="category-buttons btn m-10">
-          <NavLink to={`/category/${category.id}`}>{category.name}</NavLink>
+          <NavLink to={`/${NAVBAR_LINKS.CATEGORY}/${category.id}`}>
+            {category.name}
+          </NavLink>
         </div>
       );
     });

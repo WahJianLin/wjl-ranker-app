@@ -1,7 +1,7 @@
 import {
   NAVBAR_LINKS,
   NAVBAR_LINKS_IN_USE,
-  NAVBAR_LINKS_TEXT,
+  NAVIGATION_LINKS_TEXT,
   WJL_RANKER_TEXT,
 } from "../../supplimentary/constants";
 import { NavLink } from "react-router-dom";
@@ -11,7 +11,7 @@ function Navbar() {
     return NAVBAR_LINKS_IN_USE.map((link: string) => {
       return (
         <li key={link}>
-          <NavLink to={`/${link}`}>{NAVBAR_LINKS_TEXT[link]}</NavLink>
+          <NavLink to={`/${link}`}>{NAVIGATION_LINKS_TEXT[link]}</NavLink>
         </li>
       );
     });

@@ -4,7 +4,7 @@ export enum NAVBAR_LINKS {
   CATEGORY = "category",
 }
 
-export const NAVBAR_LINKS_TEXT: { [key: string]: string } = {
+export const NAVIGATION_LINKS_TEXT: { [key: string]: string } = {
   [NAVBAR_LINKS.HOME]: "Home",
   [NAVBAR_LINKS.CATEGORY]: "Category",
 };

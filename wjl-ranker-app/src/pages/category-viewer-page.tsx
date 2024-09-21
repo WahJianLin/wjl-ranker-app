@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function CategoryViewerPage() {
   const [state, setState] = useState<ICategoryViewerPageState>({
     category: {} as ICategory,
-  })
+  });
   const { id } = useParams();
 
   useEffect(() => {
