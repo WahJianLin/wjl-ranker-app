@@ -13,7 +13,7 @@ function HomeHero() {
             a id nisi.
           </p>
           <button className="btn btn-primary">
-            <NavLink to={`/${NAVBAR_LINKS.TEST}`}>Test</NavLink>
+            <NavLink to={`/${NAVBAR_LINKS.CATEGORY}`}>Test</NavLink>
           </button>
         </div>
       </div>
