@@ -18,6 +18,14 @@ export const RankingItemApi = {
     return response;
   },
 
+  async getRankingItemsByCategoryId(categoryId: number): Promise<IRankingItem[]> {
+    const url: string = `http://localhost:8080/api/v1/ranking-item/category/${categoryId}`;
+    const response: IRankingItem[] = await fetch(url, { method: "GET" })
+      .then((response) => response.json())
+      .catch((error) => console.error(error));
+    return response;
+  },
+
   async postRankingItem(
     rankingItem: IRankingItem
   ): Promise<IRankingItem | null> {
